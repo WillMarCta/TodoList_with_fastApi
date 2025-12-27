@@ -7,10 +7,15 @@ from contextlib import asynccontextmanager
 
 app = FastAPI(
     title="TodoList API",
-    description="Gestión de tareas con autenticación JWT y MongoDB Atlas",
-    version="1.0.0"
-
+    description="API para gestionar tareas con autenticación JWT y MongoDB Atlas",
+    version="1.0.0",
+    contact={
+        "name": "Wilson",
+        "email": "wmjosemarquez@gmail.com",
+        "url": "https://github.com/tu_usuario"
+    }
 )
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
