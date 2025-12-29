@@ -1,8 +1,9 @@
-from fastapi import FastAPI, HTTPException
-from routers import users, task, auth
-from fastapi.middleware.cors import CORSMiddleware
-from mongodb.cliente import get_database, ping_server
 from contextlib import asynccontextmanager
+from fastapi.middleware.cors import CORSMiddleware
+from mongodb.cliente import get_database
+from routers import users, task, auth
+from fastapi import FastAPI
+
 
 
 app = FastAPI(
@@ -15,19 +16,6 @@ app = FastAPI(
         "url": "https://github.com/tu_usuario"
     }
 )
-
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    # 🔄 Startup: conexión a MongoDB
-    app.mongodb = await get_database()
-    print("✅ Conexión a MongoDB Atlas establecida correctamente")
-
-    yield  # ⏳ Aquí corre la app
-
-    # 🔻 Shutdown: cerrar conexión
-    app.mongodb.client.close()
-    print("🔴 Conexión a MongoDB cerrada")
 
 # Conexión de routers
 app.include_router(users.router, tags=["Usuarios"])

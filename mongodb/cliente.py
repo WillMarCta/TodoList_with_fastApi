@@ -3,12 +3,14 @@ from pymongo import AsyncMongoClient
 from pymongo.server_api import ServerApi
 
 async def get_client():
+    """ Funtion to get the MongoDB client"""
     uri = "mongodb+srv://wmarquez:25859068Ww..@willmar.ro1lrnr.mongodb.net/?appName=willmar"
     client = AsyncMongoClient(uri, server_api=ServerApi('1'))
     return client
 
 #obteniendo la base de datos principal
 async def get_database():
+    """ Funtion to get the main database"""
     client = await get_client()
     return client["main_db"]
 
