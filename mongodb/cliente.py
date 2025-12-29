@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 
 async def get_client():
     """ Funtion to get the MongoDB client"""
-    uri = "**"
+    uri = "**" #here you need to copy your URI
     client = AsyncMongoClient(uri, server_api=ServerApi('1'))
     return client
 
