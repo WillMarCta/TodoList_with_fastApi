@@ -4,7 +4,7 @@ from pymongo.server_api import ServerApi
 
 async def get_client():
     """ Funtion to get the MongoDB client"""
-    uri = "mongodb+srv://wmarquez:25859068Ww..@willmar.ro1lrnr.mongodb.net/?appName=willmar"
+    uri = "**"
     client = AsyncMongoClient(uri, server_api=ServerApi('1'))
     return client
 
